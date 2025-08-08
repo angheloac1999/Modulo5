@@ -132,13 +132,14 @@ function verResultados() {
       console.log(`${elecciones.indexOf(eleccion)+1}. ${eleccion.nombre}`)
     });
     rl.question('Seleccione el numero de la eleccion que desea cerrar: ', (num => {
-      const idx = parseInt(num) -1;
-      if (idx >= 0 && idx < eleccionesAbiertas.length) {
-        eleccionesAbiertas[idx].estadoEleccion = 'cerrada';
-        console.log(`Eleccion: "${eleccionesAbiertas[idx].nombre}" cerrada.`);
+      const idx = parseInt(num) - 1;
+      if (idx >= 0 && idx < elecciones.length) {
+        elecciones[idx].estadoEleccion = 'cerrada';
+        console.log(`Eleccion: "${elecciones[idx].nombre}" cerrada.`);
         mainMenu();
       } else {
         console.log('Eleccion invalida');
+        mainMenu();
       }
     }))
   }
